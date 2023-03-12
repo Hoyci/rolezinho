@@ -8,12 +8,11 @@ interface IButtonProps {
 export const Button = styled.button<IButtonProps>`
   display: flex;
   align-items: center;
-  background-color: ${({ ghost }) =>
-    ghost ? 'transparent' : ({ theme }) => theme.colors.primary.main};
-  border: ${({ outlined }) =>
-    outlined ? `1px solid ${({ theme }) => theme.colors.gray.main}` : 'none'};
-  color: ${({ ghost }) =>
-    ghost ? ({ theme }) => theme.colors.gray.main : '#fff'};
+  background-color: ${({ ghost, theme }) =>
+    ghost ? 'transparent' : theme.colors.primary.main};
+  border: ${({ outlined, theme }) =>
+    outlined ? `1px solid ${theme.colors.gray.main}` : 'none'};
+  color: ${({ ghost, theme }) => (ghost ? theme.colors.gray.main : '#fff')};
   font-size: 1.2rem;
   font-weight: 600;
   padding: 1rem 2rem;
